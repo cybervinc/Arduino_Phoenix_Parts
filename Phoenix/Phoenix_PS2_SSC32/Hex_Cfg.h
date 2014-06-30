@@ -58,7 +58,7 @@
 // Warning I will undefine some components as the non-megas don't have enough memory...
 //#undef OPT_FIND_SERVO_OFFSETS 
 
-#define cSSC_BAUD        38400   //SSC32 BAUD rate
+#define cSSC_BAUD        115200   //SSC32 BAUD rate
 
 //--------------------------------------------------------------------
 //[Botboarduino Pin Numbers]
@@ -76,35 +76,35 @@
 
 //====================================================================
 //[SSC PIN NUMBERS]
-#define cRFCoxaPin      0   //Front Right leg Hip Horizontal
-#define cRFFemurPin     1   //Front Right leg Hip Vertical
-#define cRFTibiaPin     2   //Front Right leg Knee
-#define cRFTarsPin      3   // Tar
+#define cRFCoxaPin      13   //Front Right leg Hip Horizontal
+#define cRFFemurPin     14   //Front Right leg Hip Vertical
+#define cRFTibiaPin     15   //Front Right leg Knee
+#define cRFTarsPin      12   // Tar
 
-#define cRMCoxaPin      4   //Middle Right leg Hip Horizontal
-#define cRMFemurPin     5   //Middle Right leg Hip Vertical
+#define cRMCoxaPin      5   //Middle Right leg Hip Horizontal
+#define cRMFemurPin     4   //Middle Right leg Hip Vertical
 #define cRMTibiaPin     6   //Middle Right leg Knee
 #define cRMTarsPin      7   // Tar
 
-#define cRRCoxaPin      8   //Rear Right leg Hip Horizontal
-#define cRRFemurPin     9   //Rear Right leg Hip Vertical
-#define cRRTibiaPin     10   //Rear Right leg Knee
-#define cRRTarsPin      11   // Tar
+#define cRRCoxaPin      1   //Rear Right leg Hip Horizontal
+#define cRRFemurPin     0   //Rear Right leg Hip Vertical
+#define cRRTibiaPin     2   //Rear Right leg Knee
+#define cRRTarsPin      3   // Tar
 
-#define cLFCoxaPin      16   //Front Left leg Hip Horizontal
-#define cLFFemurPin     17   //Front Left leg Hip Vertical
-#define cLFTibiaPin     18   //Front Left leg Knee
-#define cLFTarsPin      19   // Tar
+#define cLFCoxaPin      29   //Front Left leg Hip Horizontal
+#define cLFFemurPin     30   //Front Left leg Hip Vertical
+#define cLFTibiaPin     31   //Front Left leg Knee
+#define cLFTarsPin      28   // Tar
 
-#define cLMCoxaPin      20   //Middle Left leg Hip Horizontal
-#define cLMFemurPin     21   //Middle Left leg Hip Vertical
+#define cLMCoxaPin      21   //Middle Left leg Hip Horizontal
+#define cLMFemurPin     20   //Middle Left leg Hip Vertical
 #define cLMTibiaPin     22   //Middle Left leg Knee
 #define cLMTarsPin      23   // Tar
 
-#define cLRCoxaPin      24   //Rear Left leg Hip Horizontal
-#define cLRFemurPin     25   //Rear Left leg Hip Vertical
-#define cLRTibiaPin     26   //Rear Left leg Knee
-#define cLRTarsPin      27   // Tar
+#define cLRCoxaPin      17   //Rear Left leg Hip Horizontal
+#define cLRFemurPin     16   //Rear Left leg Hip Vertical
+#define cLRTibiaPin     18   //Rear Left leg Knee
+#define cLRTarsPin      19   // Tar
 
 
 //--------------------------------------------------------------------
@@ -155,9 +155,9 @@
 //--------------------------------------------------------------------
 //[LEG DIMENSIONS]
 //Universal dimensions for each leg in mm
-#define cXXCoxaLength     29    // This is for TH3-R legs
-#define cXXFemurLength    76
-#define cXXTibiaLength    106
+#define cXXCoxaLength     22    // This is for TH3-R legs
+#define cXXFemurLength    65
+#define cXXTibiaLength    90
 #define cXXTarsLength     85    // 4DOF only...
 
 #define cRRCoxaLength     cXXCoxaLength	    //Right Rear leg
@@ -200,25 +200,25 @@
 #define cLMCoxaAngle1    0          //Default Coxa setup angle, decimals = 1
 #define cLFCoxaAngle1    600        //Default Coxa setup angle, decimals = 1
 
-#define cRROffsetX 	-43	    //Distance X from center of the body to the Right Rear coxa
-#define cRROffsetZ 	82	    //Distance Z from center of the body to the Right Rear coxa
-#define cRMOffsetX 	-63	    //Distance X from center of the body to the Right Middle coxa
+#define cRROffsetX 	-55	    //Distance X from center of the body to the Right Rear coxa
+#define cRROffsetZ 	90	    //Distance Z from center of the body to the Right Rear coxa
+#define cRMOffsetX 	-75	    //Distance X from center of the body to the Right Middle coxa
 #define cRMOffsetZ 	0	    //Distance Z from center of the body to the Right Middle coxa
-#define cRFOffsetX 	-43	    //Distance X from center of the body to the Right Front coxa
-#define cRFOffsetZ 	-82	    //Distance Z from center of the body to the Right Front coxa
+#define cRFOffsetX 	-55	    //Distance X from center of the body to the Right Front coxa
+#define cRFOffsetZ 	-90	    //Distance Z from center of the body to the Right Front coxa
 
-#define cLROffsetX 	43	    //Distance X from center of the body to the Left Rear coxa
-#define cLROffsetZ 	82	    //Distance Z from center of the body to the Left Rear coxa
-#define cLMOffsetX 	63	    //Distance X from center of the body to the Left Middle coxa
+#define cLROffsetX 	55	    //Distance X from center of the body to the Left Rear coxa
+#define cLROffsetZ 	90	    //Distance Z from center of the body to the Left Rear coxa
+#define cLMOffsetX 	75	    //Distance X from center of the body to the Left Middle coxa
 #define cLMOffsetZ 	0	    //Distance Z from center of the body to the Left Middle coxa
-#define cLFOffsetX 	43	    //Distance X from center of the body to the Left Front coxa
-#define cLFOffsetZ 	-82	    //Distance Z from center of the body to the Left Front coxa
+#define cLFOffsetX 	55	    //Distance X from center of the body to the Left Front coxa
+#define cLFOffsetZ 	-90	    //Distance Z from center of the body to the Left Front coxa
 
 //--------------------------------------------------------------------
 //[START POSITIONS FEET]
-#define cHexInitXZ	 105 
-#define CHexInitXZCos60  53        // COS(60) = .5
-#define CHexInitXZSin60  91        // sin(60) = .866
+#define cHexInitXZ	 60 
+#define CHexInitXZCos60  30        // COS(60) = .5
+#define CHexInitXZSin60  52        // sin(60) = .866
 #define CHexInitY	 25
 
 // Lets try some multi leg positions depending on height settings.

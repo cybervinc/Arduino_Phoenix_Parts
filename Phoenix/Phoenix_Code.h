@@ -1313,7 +1313,7 @@ void LegIK (short IKFeetPosX, short IKFeetPosY, short IKFeetPosZ, byte LegIKLegN
 
   //Calculate IKCoxaAngle and IKFeetPosXZ
   GetATan2 (IKFeetPosX, IKFeetPosZ);
-  CoxaAngle1[LegIKLegNr] = (((long)Atan4*180) / 3141) + (short)pgm_read_word(&cCoxaAngle1[LegIKLegNr]);
+  CoxaAngle1[LegIKLegNr] = -(((long)Atan4*180) / 3141) - (short)pgm_read_word(&cCoxaAngle1[LegIKLegNr]);
 
   //Length between the Coxa and tars [foot]
   IKFeetPosXZ = XYhyp2/c2DEC;
@@ -1369,9 +1369,9 @@ void LegIK (short IKFeetPosX, short IKFeetPosY, short IKFeetPosZ, byte LegIKLegN
   if (g_fRobotUpsideDown)
     FemurAngle1[LegIKLegNr] = (long)(IKA14 + IKA24) * 180 / 3141 - 900 + CFEMURHORNOFFSET1(LegIKLegNr);//Inverted, up side down
   else
-    FemurAngle1[LegIKLegNr] = -(long)(IKA14 + IKA24) * 180 / 3141 + 900 + CFEMURHORNOFFSET1(LegIKLegNr);//Normal
+    FemurAngle1[LegIKLegNr] = (long)(IKA14 + IKA24) * 180 / 3141 + 900 + CFEMURHORNOFFSET1(LegIKLegNr);//Normal
 #else
-  FemurAngle1[LegIKLegNr] = -(long)(IKA14 + IKA24) * 180 / 3141 + 900 + CFEMURHORNOFFSET1(LegIKLegNr);//Normal
+  FemurAngle1[LegIKLegNr] = (long)(IKA14 + IKA24) * 180 / 3141 - 900 + CFEMURHORNOFFSET1(LegIKLegNr);//Normal
 #endif  
 
   //IKTibiaAngle
@@ -1380,14 +1380,14 @@ void LegIK (short IKFeetPosX, short IKFeetPosY, short IKFeetPosZ, byte LegIKLegN
   GetArcCos (Temp1 / Temp2);
 #ifdef OPT_WALK_UPSIDE_DOWN
   if (g_fRobotUpsideDown)
-    TibiaAngle1[LegIKLegNr] = (1800-(long)AngleRad4*180/3141);//Full range tibia, wrong side (up side down)
+    TibiaAngle1[LegIKLegNr] = -(1800-(long)AngleRad4*180/3141);//Full range tibia, wrong side (up side down)
   else
-    TibiaAngle1[LegIKLegNr] = -(1800-(long)AngleRad4*180/3141);//Full range tibia, right side (up side up)
+    TibiaAngle1[LegIKLegNr] = (1800-(long)AngleRad4*180/3141);//Full range tibia, right side (up side up)
 #else
 #ifdef PHANTOMX_V2     // BugBug:: cleaner way?
-  TibiaAngle1[LegIKLegNr] = -(1450-(long)AngleRad4*180/3141); //!!!!!!!!!!!!145 instead of 1800
+  TibiaAngle1[LegIKLegNr] = (1450-(long)AngleRad4*180/3141); //!!!!!!!!!!!!145 instead of 1800
 #else
-  TibiaAngle1[LegIKLegNr] = -(900-(long)AngleRad4*180/3141);
+  TibiaAngle1[LegIKLegNr] = (900-(long)AngleRad4*180/3141);
 #endif  
 #endif
 
